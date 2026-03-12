@@ -5,8 +5,7 @@
 **LifeCare** es una aplicación web progresiva (PWA) minimalista para el seguimiento diario de hábitos saludables, productividad y bienestar mental.  
 Registra tus hábitos, acumula experiencia (XP), sube de nivel, desbloquea temas visuales y mantiene rachas para motivarte a ser constante.
 
-![LifeCare preview](https://via.placeholder.com/800x500/4caf50/ffffff?text=LifeCare+Preview)  
-*(captura de pantalla recomendada aquí – puedes reemplazar el enlace)*
+
 
 ## Características principales
 
