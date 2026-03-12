@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeCare</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-green">
+
+  <div class="bonus" id="bonus">¡DÍA PERFECTO! +50 XP</div>
+
+  <div class="app">
+    <header>
+      <h2>Life Care</h2>
+      <div id="motivation" class="motivation"></div>
+    </header>
+
+    <div class="content" id="app-content"></div>
+  </div>
+
+  <!-- Modal para agregar hábito personalizado -->
+  <div id="habit-modal-overlay" class="modal-overlay" onclick="if(event.target===this) hideHabitModal();">
+    <div id="habit-modal" class="modal">
+      <h4>Nuevo hábito</h4>
+      <input type="text" id="habit-input" placeholder="Escribe hábito" style="width:100%; padding:8px; margin-top:8px; box-sizing:border-box;">
+      <div style="margin-top:12px; display:flex; gap:8px; justify-content:flex-end;">
+        <button onclick="hideHabitModal()" style="background:#ccc; color:#333;">Cancelar</button>
+        <button onclick="confirmHabitModal()" style="background:#4caf50; color:white;">Agregar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

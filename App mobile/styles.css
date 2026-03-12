@@ -1,0 +1,344 @@
+/* Variables de tema base */
+:root {
+  --primary: #4caf50;
+  --primary-hover: #43a047;
+  --primary-light: #e8f5e9;
+  --primary-gradient-1: #e0f7fa;
+  --primary-gradient-2: #f0fff4;
+}
+
+/* Tema Verde (Nivel 1) */
+body.theme-green {
+  --primary: #4caf50;
+  --primary-hover: #43a047;
+  --primary-light: #e8f5e9;
+  --primary-gradient-1: #e0f7fa;
+  --primary-gradient-2: #f0fff4;
+}
+
+/* Tema Azul (Nivel 5) */
+body.theme-blue {
+  --primary: #1976d2;
+  --primary-hover: #1565c0;
+  --primary-light: #e3f2fd;
+  --primary-gradient-1: #e1f5fe;
+  --primary-gradient-2: #f3e5f5;
+}
+
+/* Tema Morado (Nivel 10) */
+body.theme-purple {
+  --primary: #7b1fa2;
+  --primary-hover: #6a1b9a;
+  --primary-light: #f3e5f5;
+  --primary-gradient-1: #ede7f6;
+  --primary-gradient-2: #f3e5f5;
+}
+
+/* Tema Dorado (Nivel 20) */
+body.theme-gold {
+  --primary: #f57f17;
+  --primary-hover: #e65100;
+  --primary-light: #fff3e0;
+  --primary-gradient-1: #ffe0b2;
+  --primary-gradient-2: #fff9c4;
+}
+
+/* Estilos generales */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, var(--primary-gradient-1) 0%, var(--primary-gradient-2) 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.app {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+header {
+  background: var(--primary);
+  color: white;
+  padding: 16px 20px;
+  text-align: center;
+}
+
+h2, h3 { margin: 0; }
+
+.content {
+  padding: 20px;
+}
+
+/* Botones generales */
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+button:hover {
+  background: var(--primary-hover);
+}
+
+/* Elemento de hábito */
+.habit {
+  padding: 14px 16px;
+  margin: 8px 0;
+  border-radius: 12px;
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.habit.done {
+  background: var(--primary-light);
+  border-left: 5px solid var(--primary);
+  animation: completeScale 0.3s ease-out;
+}
+
+.habit.notdone:hover {
+  background: #e3f2fd;
+}
+
+/* Barra de progreso XP */
+.progress {
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, var(--primary), var(--primary-hover));
+  transition: width 0.4s ease;
+}
+
+/* Notificación de día perfecto */
+.bonus {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #00c853;
+  color: white;
+  padding: 18px 36px;
+  border-radius: 30px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  box-shadow: 0 8px 30px rgba(0,200,83,0.4);
+  display: none;
+  z-index: 100;
+  animation: pop 0.4s ease-out;
+}
+
+@keyframes pop {
+  0%   { transform: translateX(-50%) scale(0.7); opacity: 0; }
+  70%  { transform: translateX(-50%) scale(1.08); }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+@keyframes completeScale {
+  0%   { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Calendario mensual */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.cal-day {
+  padding: 8px 4px;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.cal-day.today    { background: #fff176; font-weight: bold; }
+.cal-day.perfect  { background: #81c784; color: white; }
+.cal-day.partial  { background: #a5d6a7; color: white; }
+.cal-day.empty    { background: #eeeeee; }
+
+/* Navegación inferior */
+.nav {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.nav button {
+  width: auto;
+  padding: 10px 16px;
+  font-size: 1rem;
+}
+
+/* Área del asistente */
+.assistant-area {
+  background: #e3f2fd;
+  border-radius: 12px;
+  padding: 14px;
+  margin: 8px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.assistant-area:hover {
+  background: #bbdefb;
+}
+
+.suggestion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.assistant-question {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.assistant-bubble {
+  background: #fff;
+  border: 2px solid #4caf50;
+  border-radius: 20px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Modal para agregar hábitos */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.modal-overlay.visible {
+  display: flex;
+  opacity: 1;
+}
+
+.modal {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  width: 90%;
+  max-width: 360px;
+  transform: scale(0.8);
+  transition: transform 0.3s;
+}
+
+.modal.visible {
+  transform: scale(1);
+}
+
+/* Notificaciones toast */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #323232;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 300;
+  animation: slideUp 0.3s ease-out forwards;
+  max-width: 90%;
+}
+
+@keyframes slideUp {
+  from { transform: translateX(-50%) translateY(100px); opacity: 0; }
+  to   { transform: translateX(-50%) translateY(0);    opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateX(-50%) translateY(0);    opacity: 1; }
+  to   { transform: translateX(-50%) translateY(100px); opacity: 0; }
+}
+
+.toast.fadeOut    { animation: slideDown 0.6s ease-out forwards; }
+.toast.error      { background: #f44336; }
+.toast.success    { background: #4caf50; }
+.toast.info       { background: #2196F3; }
+
+/* Texto motivacional en header */
+.motivation {
+  text-align: center;
+  font-style: italic;
+  color: white;
+  margin: 16px 0;
+  min-height: 1.4em;
+}
+
+/* Mini gráfico de últimos 7 días */
+.mini-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 140px;
+  padding: 12px 0;
+  justify-content: space-between;
+}
+
+.bar-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.bar {
+  width: 100%;
+  background: #81c784;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.4s ease;
+}
+
+.bar.partial { background: #a5d6a7; }
+.bar.empty   { background: #e0e0e0; }
+
+.bar-label {
+  font-size: 0.75rem;
+  color: #555;
+  text-align: center;
+}
